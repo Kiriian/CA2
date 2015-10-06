@@ -21,27 +21,13 @@ import javax.persistence.OneToMany;
 @Entity
 public class CityInfo implements Serializable
 {
-
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
     private String zip;
     private String city;
     
     @OneToMany(mappedBy = "cityInfo")
     List<Address> AddList = new ArrayList();
-
-
-    public Integer getId()
-    {
-        return id;
-    }
-
-    public void setId(Integer id)
-    {
-        this.id = id;
-    }
 
     public String getZip()
     {

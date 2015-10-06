@@ -16,9 +16,6 @@ import javax.persistence.Persistence;
  */
 public class Facade
 {
-
-    
-    
     public static Person getPerson(int id)
     {
          EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2_newPU");
