@@ -21,8 +21,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Phone implements Serializable
 {
-//    @ManyToOne
-//    InfoEntity info;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -75,7 +73,6 @@ public class Phone implements Serializable
     {
         this.infoEntity = infoEntity;
     }
-    
     
     
 }

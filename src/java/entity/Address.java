@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,20 +21,19 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Address implements Serializable
-{
-
+{   
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String street;
     private String additionalInfo;
-
-    @OneToMany(mappedBy = "address")
-    private ArrayList<InfoEntity> infoE = new ArrayList();
-
+    
     @ManyToOne
-    private CityInfo cI = new CityInfo();
+    private CityInfo cityInfo;
+    
+    @OneToMany(mappedBy = "address")
+    private List<InfoEntity> infoList = new ArrayList();
 
     public Integer getId()
     {
@@ -65,25 +65,26 @@ public class Address implements Serializable
         this.additionalInfo = additionalInfo;
     }
 
-    public ArrayList<InfoEntity> getInfoE()
+    public CityInfo getCityInfo()
     {
-        return infoE;
+        return cityInfo;
     }
 
-    public void setInfoE(ArrayList<InfoEntity> infoE)
+    public void setCityInfo(CityInfo cityInfo)
     {
-        this.infoE = infoE;
+        this.cityInfo = cityInfo;
     }
 
-    public CityInfo getcI()
+    public List<InfoEntity> getInfoList()
     {
-        return cI;
+        return infoList;
     }
 
-    public void setcI(CityInfo cI)
+    public void setInfoList(List<InfoEntity> infoList)
     {
-        this.cI = cI;
+        this.infoList = infoList;
     }
+    
     
     
 }

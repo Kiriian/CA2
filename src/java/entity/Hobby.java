@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Hobby implements Serializable
 {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,8 +29,8 @@ public class Hobby implements Serializable
     private String name;
     private String description;
     
-    @ManyToMany(mappedBy = "hobbyList")
-    private ArrayList<Person> personList = new ArrayList();
+    @ManyToMany(mappedBy = "hobbys")
+    List<Person> personList = new ArrayList();
 
     public Integer getId()
     {
@@ -60,12 +62,12 @@ public class Hobby implements Serializable
         this.description = description;
     }
 
-    public ArrayList<Person> getPersonList()
+    public List<Person> getPersonList()
     {
         return personList;
     }
 
-    public void setPersonList(ArrayList<Person> personList)
+    public void setPersonList(List<Person> personList)
     {
         this.personList = personList;
     }
