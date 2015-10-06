@@ -17,5 +17,6 @@ public class Tester
     public static void main(String[] args)
     {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
+        System.out.println("emf = " + emf);
     }
 }
