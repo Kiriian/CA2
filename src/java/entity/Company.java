@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author Jeanette
  */
 @Entity
-public class Company extends InfoEntity implements Serializable
+public class Company extends InfoEntitys implements Serializable
 {
     private Integer id;
     private String name;

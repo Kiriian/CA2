@@ -20,20 +20,19 @@ import javax.persistence.OneToMany;
  * @author Jeanette
  */
 @Entity
-public class Address implements Serializable
-{   
+public class InfoEntitys implements Serializable
+{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String street;
-    private String additionalInfo;
+    private String email;
+    
+    @OneToMany(mappedBy = "infoEntity")
+    private List<Phone> phoneList = new ArrayList();
     
     @ManyToOne
-    private CityInfo cityInfo;
-    
-    @OneToMany(mappedBy = "address")
-    private List<InfoEntitys> infoList = new ArrayList();
+    private Address address;
 
     public Integer getId()
     {
@@ -45,46 +44,35 @@ public class Address implements Serializable
         this.id = id;
     }
 
-    public String getStreet()
+    public String getEmail()
     {
-        return street;
+        return email;
     }
 
-    public void setStreet(String street)
+    public void setEmail(String email)
     {
-        this.street = street;
+        this.email = email;
     }
 
-    public String getAdditionalInfo()
+    public List<Phone> getPhoneList()
     {
-        return additionalInfo;
+        return phoneList;
     }
 
-    public void setAdditionalInfo(String additionalInfo)
+    public void setPhoneList(List<Phone> phoneList)
     {
-        this.additionalInfo = additionalInfo;
+        this.phoneList = phoneList;
     }
 
-    public CityInfo getCityInfo()
+    public Address getAddress()
     {
-        return cityInfo;
+        return address;
     }
 
-    public void setCityInfo(CityInfo cityInfo)
+    public void setAddress(Address address)
     {
-        this.cityInfo = cityInfo;
+        this.address = address;
     }
 
-    public List<InfoEntitys> getInfoList()
-    {
-        return infoList;
-    }
-
-    public void setInfoList(List<InfoEntitys> infoList)
-    {
-        this.infoList = infoList;
-    }
-    
-    
     
 }
