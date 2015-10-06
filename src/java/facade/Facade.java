@@ -24,12 +24,11 @@ public class Facade
         EntityManager em = emf.createEntityManager();
         try
         {
-            
+            return em.find(Person.class, id);
         } finally
         {
             em.close();
         }
-        return em.find(Person.class, id);
     }
 
 }
