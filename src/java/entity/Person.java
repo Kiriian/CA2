@@ -15,26 +15,29 @@ import javax.persistence.ManyToMany;
 
 /**
  *
- * @author Pernille
+ * @author Jeanette
  */
 @Entity
 public class Person extends InfoEntity implements Serializable
 {
-    private String firstName;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+        private String firstName;
     private String lastName;
     @ManyToMany
     private ArrayList<Hobby> hobbyList = new ArrayList();
 
-    public Person()
+    public Integer getId()
     {
+        return id;
     }
 
-    public Person(String firstName, String lastName)
+    public void setId(Integer id)
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.id = id;
     }
-
 
     public String getFirstName()
     {
@@ -65,6 +68,7 @@ public class Person extends InfoEntity implements Serializable
     {
         this.hobbyList = hobbyList;
     }
+    
     
     
 }

@@ -15,46 +15,27 @@ import javax.persistence.ManyToMany;
 
 /**
  *
- * @author Pernille
+ * @author Jeanette
  */
 @Entity
 public class Hobby implements Serializable
 {
+    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String name;
     private String description;
+    
     @ManyToMany(mappedBy = "hobbyList")
     private ArrayList<Person> personList = new ArrayList();
 
-    public Hobby()
-    {
-    }
-
-    public Hobby(long id, String name, String description)
-    {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
-
-    public ArrayList<Person> getPersonList()
-    {
-        return personList;
-    }
-
-    public void setPersonList(ArrayList<Person> personList)
-    {
-        this.personList = personList;
-    }
-    
-    public long getId()
+    public Integer getId()
     {
         return id;
     }
 
-    public void setId(long id)
+    public void setId(Integer id)
     {
         this.id = id;
     }
@@ -79,4 +60,15 @@ public class Hobby implements Serializable
         this.description = description;
     }
 
+    public ArrayList<Person> getPersonList()
+    {
+        return personList;
+    }
+
+    public void setPersonList(ArrayList<Person> personList)
+    {
+        this.personList = personList;
+    }
+
+    
 }
