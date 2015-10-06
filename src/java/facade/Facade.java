@@ -19,7 +19,7 @@ public class Facade
 
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
 
-    public static Person getPerson(int id)
+    public static Person getPersonByID(int id)
     {
         EntityManager em = emf.createEntityManager();
         try

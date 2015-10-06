@@ -1350,3 +1350,7 @@ INSERT INTO CITYINFO (ZIP, CITY) VALUES ('928', 'Vikarbyrgi');
 INSERT INTO CITYINFO (ZIP, CITY) VALUES ('950', 'Porkeri');
 INSERT INTO CITYINFO (ZIP, CITY) VALUES ('960', 'Hov');
 INSERT INTO CITYINFO (ZIP, CITY) VALUES ('970', 'Sumba');
+
+Insert into address (ID, ADDITIONALINFO, STREET, cityinfo_ZIP) values (1, 'thing', 'skovridergårdsvej 23-25', 2830);
+Insert into infoentitys (ID, DTYPE, EMAIL, address_ID) values (1, 'Person', 'kiriian@hotmail.com', 1);
+Insert into person (ID, FIRSTNAME, LASTNAME) values (1, 'Jeanette', 'Borring-Møller');

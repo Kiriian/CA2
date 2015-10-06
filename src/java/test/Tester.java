@@ -5,7 +5,10 @@
  */
 package test;
 
+import entity.Person;
 import facade.Facade;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -15,6 +18,7 @@ public class Tester
 {
     public static void main(String[] args)
     {
-        System.out.println("Person: " + Facade.getPerson(1));
+        Person p = Facade.getPersonByID(1);
+        System.out.println("Person: " + p.getFirstName() + ", " + p.getLastName());
     }
 }
