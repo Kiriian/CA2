@@ -24,7 +24,10 @@ public class Facade
         EntityManager em = emf.createEntityManager();
         try
         {
-            return em.find(Person.class, id);
+            em.getTransaction().begin();
+            Person p = em.createQuery("SELECT p FROM Person p WHERE p.id = :id", Person.class).setParameter("id", id).getSingleResult();
+            em.getTransaction().commit();
+            return p;
         } finally
         {
             em.close();
