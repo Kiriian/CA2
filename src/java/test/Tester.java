@@ -5,6 +5,7 @@
  */
 package test;
 
+import facade.Facade;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -16,7 +17,6 @@ public class Tester
 {
     public static void main(String[] args)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
-        System.out.println("emf = " + emf);
+        System.out.println("Person: " + Facade.getPerson(1));
     }
 }

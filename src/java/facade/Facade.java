@@ -16,11 +16,20 @@ import javax.persistence.Persistence;
  */
 public class Facade
 {
+
+    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
+
     public static Person getPerson(int id)
     {
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2_newPU");
         EntityManager em = emf.createEntityManager();
+        try
+        {
+            
+        } finally
+        {
+            em.close();
+        }
         return em.find(Person.class, id);
     }
-            
+
 }
