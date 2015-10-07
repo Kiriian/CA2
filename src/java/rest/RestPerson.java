@@ -78,20 +78,6 @@ public class RestPerson
             }
             person.add("hobbies", hobbies);
         
-        return gson.fromJson(person, String.class);
-
-        hobbiess = persons.getHobbys();
-        while (!hobbiess.isEmpty())
-        {
-            Hobby h = hobbiess.get(0);
-            hobby.addProperty("hobbyName", h.getHobbyName());
-            hobby.addProperty("description", h.getDescription());
-
-            hobbies.add(hobby);
-            hobbiess.remove(h);
-        }
-        person.add("hobbies", hobbies);
-
         String s = new Gson().fromJson(person, String.class);
         return s;
 
