@@ -31,7 +31,7 @@ import javax.ws.rs.PUT;
 @Path("person")
 public class RestPerson
 {
-    
+
     @Context
     private UriInfo context;
 
@@ -39,6 +39,7 @@ public class RestPerson
      * Creates a new instance of RestPerson
      */
     Gson gson;
+
     public RestPerson()
     {
         gson = new GsonBuilder().setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create();
@@ -46,53 +47,53 @@ public class RestPerson
 
     /**
      * Retrieves representation of an instance of rest.RestPerson
+     *
      * @return an instance of java.lang.String
      */
     @GET
     @Path("complete/{id}")
     @Produces("application/json")
-    public String getPersonById(@PathParam("id")int id)
+    public String getPersonById(@PathParam("id") int id)
     {
-        JsonObject person = new JsonObject();       
+        JsonObject person = new JsonObject();
         JsonObject hobby = new JsonObject();
-        JsonArray hobbies= new JsonArray();
-        
+        JsonArray hobbies = new JsonArray();
+
         Person persons = Facade.getPersonByID(id);
         List<Hobby> hobbiess;
 
         person.addProperty("firstName", persons.getFirstName());
         person.addProperty("lastName", persons.getLastName());
         person.addProperty("email", persons.getEmail());
-        
-        hobbiess = persons.getHobbys();
-            while (!hobbiess.isEmpty())
-            {
-                Hobby h = hobbiess.get(0);
-                hobby.addProperty("hobbyName", h.getHobbyName());
-                hobby.addProperty("description", h.getDescription());
-                
-                hobbies.add(hobby);
-                hobbiess.remove(h);
-            }
-            person.add("hobbies", hobbies);
-        
-        return gson person;
 
-        
-        
-//        return gson.toJson(Facade.getAllProjects());
-    }   
-    
+        hobbiess = persons.getHobbys();
+        while (!hobbiess.isEmpty())
+        {
+            Hobby h = hobbiess.get(0);
+            hobby.addProperty("hobbyName", h.getHobbyName());
+            hobby.addProperty("description", h.getDescription());
+
+            hobbies.add(hobby);
+            hobbiess.remove(h);
+        }
+        person.add("hobbies", hobbies);
+
+        String s = new Gson().fromJson(person, String.class);
+        return s;
+
     }
 
-    /**
-     * PUT method for updating or creating an instance of RestPerson
-     * @param content representation for the resource
-     * @return an HTTP response with content of the updated or created resource.
-     */
-    @PUT
-    @Consumes("application/json")
-    public void putJson(String content)
+}
+
+/**
+ * PUT method for updating or creating an instance of RestPerson
+ *
+ * @param content representation for the resource
+ * @return an HTTP response with content of the updated or created resource.
+ */
+@PUT
+        @Consumes("application/json")
+        public void putJson(String content)
     {
     }
 }
