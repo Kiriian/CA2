@@ -37,44 +37,39 @@ public class FacadeJUnitTest
         personID = 1;
         p = Facade.getPersonByID(personID);
         
-        assertEquals("Jeanette", p.getFirstName());
-        assertEquals("Borring-Møller", p.getLastName());
+        assertEquals(1,(long) p.getId());
+        assertEquals("Korben", p.getFirstName());
+        assertEquals("Dallas", p.getLastName());
     }
     
     @Test
     public void getCompanyByCVRTest()
     {
-        cvr = 11111111;
+        cvr = 75897548;
         c = Facade.getCompanyByCVR(cvr);
         
-        assertEquals(11111111, c.getCvr());
-        assertEquals("cph", c.getCompanyName());
-        assertEquals(10, (long) c.getMarketValue());
-        assertEquals(10, c.getNumEmployees());
+        assertEquals(75897548, c.getCvr());
+        assertEquals("Fields", c.getCompanyName());
     }
     
     @Test
     public void CountPersonWithHobbyTest()
     {
-        hobby = "programming";
+        hobby = "Programmering";
         
         count = Facade.countPeopleWithHobby(hobby);
         
-        assertEquals("2", count);
+        assertEquals(2, count);
     }
     
         @Test
     public void getCompanyByID()
     {
-        id = 4;
+        id = 7;
         
-        c = Facade.getCompanyByID((int) id);
+        c = Facade.getCompanyByID((int)id);
         
-        assertEquals(4, (long) c.getId());
-        assertEquals("cph", c.getCompanyName());
-        assertEquals("10", c.getMarketValue());
-        assertEquals("10", c.getNumEmployees());
-        assertEquals("28775863", c.getPhoneList().get(0));
+        assertEquals(7, (long) c.getId());
     }
     
 }

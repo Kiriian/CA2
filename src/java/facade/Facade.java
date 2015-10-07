@@ -10,6 +10,7 @@ import entity.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import scripts.PersistData;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Facade
 {
 
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
-
+    
     public static Person getPersonByID(int id)
     {
         EntityManager em = emf.createEntityManager();
@@ -33,23 +34,22 @@ public class Facade
         {
             em.close();
         }
-
     }
 
-    public static Company getCompanyByPhone(String number)
-    {
-        EntityManager em = emf.createEntityManager();
-        try
-        {
-            em.getTransaction().begin();
-            Company c = em.createQuery("SELECT c FROM Company c Where :number member of c.phoneList", Company.class).setParameter("number", number).getSingleResult();
-            em.getTransaction().commit();
-            return c;
-        } finally
-        {
-            em.close();
-        }
-    }
+//    public static Company getCompanyByPhone(String number)
+//    {
+//        EntityManager em = emf.createEntityManager();
+//        try
+//        {
+//            em.getTransaction().begin();
+//            Company c = em.createQuery("SELECT c FROM Company c Where :number member of c.phoneList", Company.class).setParameter("number", number).getSingleResult();
+//            em.getTransaction().commit();
+//            return c;
+//        } finally
+//        {
+//            em.close();
+//        }
+//    }
 
     public static long countPeopleWithHobby(String hobbyName)
     {
@@ -96,6 +96,22 @@ public class Facade
         {
             em.close();
         }
+    }
+    
+    public static Person createPerson(Person p)
+    {
+        EntityManager em = emf.createEntityManager();
+        try
+        {
+            em.getTransaction().begin();
+            em.persist(p);
+            em.getTransaction().commit();
+            Person pR = em.find(Person.class, p.getId());
+            return pR;
+        } finally
+        {
+            em.close();
+        } 
     }
 
 }
