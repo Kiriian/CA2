@@ -7,9 +7,6 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  *
@@ -18,13 +15,18 @@ import javax.persistence.Id;
 @Entity
 public class Company extends InfoEntitys implements Serializable
 {
-   
+    private Integer id;
     private String name;
     private String description;
     private String cvr;
     private int numEmployees;
     private int marketValue;
 
+    public Company()
+    {
+        super();
+    }
+    
     public String getName()
     {
         return name;
@@ -75,6 +77,17 @@ public class Company extends InfoEntitys implements Serializable
         this.marketValue = marketValue;
     }
 
+        @Override
+    public Integer getId()
+    {
+        return id;
+    }
     
-    
+        @Override
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
 }
+
+

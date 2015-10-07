@@ -21,7 +21,6 @@ import javax.persistence.NamedQuery;
 public class Person extends InfoEntitys implements Serializable
 {
     private Integer id;
-
     private String firstName;
     private String lastName;
     
@@ -33,8 +32,6 @@ public class Person extends InfoEntitys implements Serializable
         super();
     }
 
-    
-    
     public String getFirstName()
     {
         return firstName;
@@ -69,6 +66,7 @@ public class Person extends InfoEntitys implements Serializable
     {
         return id;
     }
+    
      public void addHobby(Hobby hobby) 
      {
         hobbys.add(hobby);
