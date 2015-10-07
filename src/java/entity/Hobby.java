@@ -60,6 +60,11 @@ public class Hobby implements Serializable
     {
         this.personList = personList;
     }
+    
+    public void addPerson (Person person)
+    {
+        personList.add(person);
+    }
 
     
 }

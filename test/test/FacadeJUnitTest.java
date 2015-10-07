@@ -6,12 +6,10 @@
 package test;
 
 import entity.Company;
-import entity.Hobby;
 import entity.Person;
 import facade.Facade;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
 
 /**
  *
@@ -19,7 +17,8 @@ import org.junit.BeforeClass;
  */
 public class FacadeJUnitTest
 {
-    private int id;
+    private int personID;
+    private long id;
     private Person p;
     private String cvr;
     private Company c;
@@ -35,10 +34,9 @@ public class FacadeJUnitTest
     @Test
     public void getPersonByIdTest()
     {
-        id = 1;
-        p = Facade.getPersonByID(id);
+        personID = 1;
+        p = Facade.getPersonByID(personID);
         
-        assertEquals("1", p.getId());
         assertEquals("Jeanette", p.getFirstName());
         assertEquals("Borring-Møller", p.getLastName());
     }
@@ -53,7 +51,6 @@ public class FacadeJUnitTest
         assertEquals("cph", c.getCompanyName());
         assertEquals(10, c.getMarketValue());
         assertEquals(10, c.getNumEmployees());
-        assertEquals("4", c.getId());
     }
     
     @Test
@@ -67,13 +64,13 @@ public class FacadeJUnitTest
     }
     
         @Test
-    public void getCompanyByPhoneNumber()
+    public void getCompanyByID()
     {
-        phoneNumber = "28775863";
+        id = 4;
         
-        c = Facade.getCompanyByPhone(phoneNumber);
+        c = Facade.getCompanyByID((int) id);
         
-        assertEquals("4", c.getId());
+        assertEquals(4, (long) c.getId());
         assertEquals("cph", c.getCompanyName());
         assertEquals("10", c.getMarketValue());
         assertEquals("10", c.getNumEmployees());

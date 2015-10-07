@@ -45,7 +45,7 @@ public class Facade
         try
         {
             em.getTransaction().begin();
-            Company c = em.createQuery("SELECT p FROM Company p JOIN p.phoneList n WHERE n.phoneNumber = :number", Company.class).setParameter("number", number).getSingleResult();
+            Company c = em.createQuery("SELECT c FROM Company c Where :number member of c.phoneList", Company.class).setParameter("number", number).getSingleResult();
             em.getTransaction().commit();
             return c;
         } finally
@@ -62,7 +62,6 @@ public class Facade
             em.getTransaction().begin();
             long count = em.createQuery("SELECT COUNT(p.id) FROM Person p JOIN p.hobbys h WHERE h.hobbyName= :hobbyName", long.class).setParameter("hobbyName", hobbyName).getSingleResult();
 
-
             em.getTransaction().commit();
             return count;
         } finally
@@ -70,7 +69,7 @@ public class Facade
             em.close();
         }
     }
-    
+
     public static Company getCompanyByCVR(String cvr)
     {
         EntityManager em = emf.createEntityManager();
@@ -86,5 +85,20 @@ public class Facade
         }
     }
    
+
+    public static Company getCompanyByID(int id)
+    {
+        EntityManager em = emf.createEntityManager();
+        try
+        {
+            em.getTransaction().begin();
+            Company c = em.find(Company.class, id);
+            em.getTransaction().commit();
+            return c;
+        } finally
+        {
+            em.close();
+        }
+    }
 
 }
