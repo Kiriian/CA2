@@ -54,13 +54,13 @@ public class Facade
         }
     }
 
-    public static int countPeopleWithHobby(String hobbyName)
+    public static long countPeopleWithHobby(String hobbyName)
     {
         EntityManager em = emf.createEntityManager();
         try
         {
             em.getTransaction().begin();
-            int count = em.createQuery("SELECT COUNT(p.id) FROM Person p WHERE p.hobbys.hobbyName= :hobbyName", int.class).setParameter("hobbyName", hobbyName).getSingleResult();
+            long count = em.createQuery("SELECT COUNT(p.id) FROM Person p JOIN p.hobbys h WHERE h.hobbyName= :hobbyName", long.class).setParameter("hobbyName", hobbyName).getSingleResult();
 
 
             em.getTransaction().commit();

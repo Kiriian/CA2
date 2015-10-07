@@ -22,7 +22,7 @@ public class Tester
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
         Person p = Facade.getPersonByID(1);
         System.out.println("Person: " + p.getFirstName() + ", " + p.getLastName() + ", " + p.getHobbys());
-        int count= Facade.countPeopleWithHobby("programmering");
+        long count= Facade.countPeopleWithHobby("programmering");
         System.out.println("count = " + count);
               
     }
