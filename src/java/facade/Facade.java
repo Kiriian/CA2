@@ -5,7 +5,11 @@
  */
 package facade;
 
+import entity.CityInfo;
+import entity.Company;
+import entity.Hobby;
 import entity.Person;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -32,6 +36,40 @@ public class Facade
         {
             em.close();
         }
+
+    }
+
+    public static Company getCompanyByPhone(int number)
+    {
+        EntityManager em = emf.createEntityManager();
+        try
+        {
+            em.getTransaction().begin();
+            Company c = em.createQuery("SELECT c FROM Company c WHERE c.phoneList=:number", Company.class).setParameter("number", number).getSingleResult();
+            em.getTransaction().commit();
+            return c;
+        } finally
+        {
+            em.close();
+        }
+    }
+
+    public static int countPeopleWithHobby(String hobbyName)
+    {
+        EntityManager em = emf.createEntityManager();
+        try
+        {
+            em.getTransaction().begin();
+            int count = em.createQuery("SELECT COUNT(p.id) FROM Person p WHERE p.hobbys.hobbyName= :hobbyName", int.class).setParameter("hobbyName", hobbyName).getSingleResult();
+
+
+            em.getTransaction().commit();
+            return count;
+        } finally
+        {
+            em.close();
+        }
+
     }
 
 }

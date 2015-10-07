@@ -22,34 +22,23 @@ import javax.persistence.ManyToMany;
 public class Hobby implements Serializable
 {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private String name;
+    @Id 
+    private String hobbyName;
     private String description;
     
     @ManyToMany(mappedBy = "hobbys")
     List<Person> personList = new ArrayList();
 
-    public Integer getId()
+   
+
+    public String getHobbyName()
     {
-        return id;
+        return hobbyName;
     }
 
-    public void setId(Integer id)
+    public void setHobbyName(String hobbyName)
     {
-        this.id = id;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
+        this.hobbyName = hobbyName;
     }
 
     public String getDescription()
