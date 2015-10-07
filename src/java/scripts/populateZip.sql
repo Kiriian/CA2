@@ -1355,8 +1355,13 @@ Insert into address (ID, ADDITIONALINFO, STREET, cityinfo_ZIP) values (1, 'thing
 Insert into infoentitys (ID, DTYPE, EMAIL, address_ID) values (1, 'Person', 'kiriian@hotmail.com', 1);
 Insert into infoentitys (ID, DTYPE, EMAIL, address_ID) values (2, 'Person', 'pernille@hotmail.com', 1);
 Insert into infoentitys (ID, DTYPE, EMAIL, address_ID) values (3, 'Person', 'marta@hotmail.com', 1);
+Insert into infoentitys (ID, DTYPE, EMAIL, address_ID) values (4, 'Company', null, 1);
+Insert into infoentitys (ID, DTYPE, EMAIL, address_ID) values (5, 'Company', null, 1);
+Insert into infoentitys (ID, DTYPE, EMAIL, address_ID) values (6, 'Company', null, 1);
 Insert into person (ID, FIRSTNAME, LASTNAME) values (1,'Jeanette', 'Borring-Møller');
 Insert into person (ID, FIRSTNAME, LASTNAME) values (2,'Pernille', 'Jacobsen');
 Insert into person (ID, FIRSTNAME, LASTNAME) values (3,'Marta', 'Miszczyk');
 Insert into hobby (DESCRIPTION, HOBBYNAME) values ('programmering', 'programmering');
 Insert into hobby (DESCRIPTION, HOBBYNAME) values ('HEJ', 'Hej');
+Insert into company (ID, CVR, DESCRIPTION, MARKETVALUE, COMPANYNAME, NUMEMPLOYEES) values (4, '11111111', 'hej', 10, 'cph', 10);
+Insert into phone (ID, DESCRIPTION, PHONENUMBER, INFOENTITY_ID) values (1, 'cph number', '28775863', 4);

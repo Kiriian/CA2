@@ -24,7 +24,7 @@ public class Phone implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String number;
+    private String PhoneNumber;
     private String description;
     @ManyToOne
     private InfoEntitys infoEntity;
@@ -34,14 +34,14 @@ public class Phone implements Serializable
     {
     }
 
-    public String getNumber()
+    public String getPhoneNumber()
     {
-        return number;
+        return PhoneNumber;
     }
 
-    public void setNumber(String number)
+    public void setPhoneNumber(String PhoneNumber)
     {
-        this.number = number;
+        this.PhoneNumber = PhoneNumber;
     }
 
     public String getDescription()

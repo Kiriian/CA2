@@ -39,13 +39,13 @@ public class Facade
 
     }
 
-    public static Company getCompanyByPhone(int number)
+    public static Company getCompanyByPhone(String number)
     {
         EntityManager em = emf.createEntityManager();
         try
         {
             em.getTransaction().begin();
-            Company c = em.createQuery("SELECT c FROM Company c WHERE c.phoneList=:number", Company.class).setParameter("number", number).getSingleResult();
+            Company c = em.createQuery("SELECT p FROM Company p JOIN p.phoneList n WHERE n.phoneNumber = :number", Company.class).setParameter("number", number).getSingleResult();
             em.getTransaction().commit();
             return c;
         } finally
@@ -69,7 +69,21 @@ public class Facade
         {
             em.close();
         }
-
+    }
+    
+    public static Company getCompanyByCVR(String cvr)
+    {
+        EntityManager em = emf.createEntityManager();
+        try
+        {
+            em.getTransaction().begin();
+            Company c = em.createQuery("SELECT c FROM Company c WHERE c.cvr= :cvr", Company.class).setParameter("cvr", cvr).getSingleResult();
+            em.getTransaction().commit();
+            return c;
+        } finally
+        {
+            em.close();
+        }
     }
 
 }

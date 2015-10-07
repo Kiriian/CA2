@@ -16,7 +16,7 @@ import javax.persistence.Entity;
 public class Company extends InfoEntitys implements Serializable
 {
     private Integer id;
-    private String name;
+    private String companyName;
     private String description;
     private String cvr;
     private int numEmployees;
@@ -27,14 +27,14 @@ public class Company extends InfoEntitys implements Serializable
         super();
     }
     
-    public String getName()
+    public String getCompanyName()
     {
-        return name;
+        return companyName;
     }
 
-    public void setName(String name)
+    public void setCompanyName(String companyName)
     {
-        this.name = name;
+        this.companyName = companyName;
     }
 
     public String getDescription()
