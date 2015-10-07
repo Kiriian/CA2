@@ -30,6 +30,13 @@ public class Person extends InfoEntitys implements Serializable
         super();
     }
 
+    public Person(String firstName, String lastName, String email, Address address)
+    {
+        super(email, address);
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String getFirstName()
     {
         return firstName;

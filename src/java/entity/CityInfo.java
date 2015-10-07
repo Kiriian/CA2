@@ -27,6 +27,16 @@ public class CityInfo implements Serializable
     @OneToMany(mappedBy = "cityInfo")
     List<Address> AddList = new ArrayList();
 
+    public CityInfo()
+    {
+    }
+
+    public CityInfo(String zip, String city)
+    {
+        this.zip = zip;
+        this.city = city;
+    }
+    
     public String getZip()
     {
         return zip;
@@ -55,6 +65,11 @@ public class CityInfo implements Serializable
     public void setAddList(List<Address> AddList)
     {
         this.AddList = AddList;
+    }
+    
+    public void addAddress(Address address)
+    {
+        AddList.add(address);
     }
     
     

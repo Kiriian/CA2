@@ -20,13 +20,23 @@ public class Company extends InfoEntitys implements Serializable
     private Integer id;
     private String companyName;
     private String description;
-    private String cvr;
+    private int cvr;
     private int numEmployees;
-    private int marketValue;
+    private double marketValue;
 
     public Company()
     {
         super();
+    }
+
+    public Company(String companyName, String description, int cvr, int numEmployees, double marketValue, String email, Address address)
+    {
+        super(email, address);
+        this.companyName = companyName;
+        this.description = description;
+        this.cvr = cvr;
+        this.numEmployees = numEmployees;
+        this.marketValue = marketValue;
     }
     
     public String getCompanyName()
@@ -49,12 +59,12 @@ public class Company extends InfoEntitys implements Serializable
         this.description = description;
     }
 
-    public String getCvr()
+    public int getCvr()
     {
         return cvr;
     }
 
-    public void setCvr(String cvr)
+    public void setCvr(int cvr)
     {
         this.cvr = cvr;
     }
@@ -69,12 +79,12 @@ public class Company extends InfoEntitys implements Serializable
         this.numEmployees = numEmployees;
     }
 
-    public int getMarketValue()
+    public double getMarketValue()
     {
         return marketValue;
     }
 
-    public void setMarketValue(int marketValue)
+    public void setMarketValue(double marketValue)
     {
         this.marketValue = marketValue;
     }

@@ -30,7 +30,7 @@ public class Tester
 ////        long count = Facade.countPeopleWithHobby("programmering");
 //        System.out.println("count = " + count);
 //        Facade.getCompanyByPhone("28775863");
-        Company c = Facade.getCompanyByCVR("11111111");
+        Company c = Facade.getCompanyByCVR(11111111);
         System.out.println("Company: " + c.getId());
         Company cc = Facade.getCompanyByID(4);
         System.out.println("company: " + cc.getId());

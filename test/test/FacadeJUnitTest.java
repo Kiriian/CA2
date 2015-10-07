@@ -20,7 +20,7 @@ public class FacadeJUnitTest
     private int personID;
     private long id;
     private Person p;
-    private String cvr;
+    private int cvr;
     private Company c;
     private String hobby;
     private long count;
@@ -44,12 +44,12 @@ public class FacadeJUnitTest
     @Test
     public void getCompanyByCVRTest()
     {
-        cvr = "11111111";
+        cvr = 11111111;
         c = Facade.getCompanyByCVR(cvr);
         
-        assertEquals("11111111", c.getCvr());
+        assertEquals(11111111, c.getCvr());
         assertEquals("cph", c.getCompanyName());
-        assertEquals(10, c.getMarketValue());
+        assertEquals(10, (long) c.getMarketValue());
         assertEquals(10, c.getNumEmployees());
     }
     

@@ -35,6 +35,17 @@ public class Address implements Serializable
     @OneToMany(mappedBy = "address")
     private List<InfoEntitys> infoList = new ArrayList();
 
+    public Address()
+    {
+    }
+    
+    public Address(String street, String additionalInfo, CityInfo cityInfo)
+    {
+        this.street = street;
+        this.additionalInfo = additionalInfo;
+        this.cityInfo = cityInfo;
+    }
+    
     public Integer getId()
     {
         return id;

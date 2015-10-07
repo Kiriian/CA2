@@ -70,7 +70,7 @@ public class Facade
         }
     }
 
-    public static Company getCompanyByCVR(String cvr)
+    public static Company getCompanyByCVR(int cvr)
     {
         EntityManager em = emf.createEntityManager();
         try
