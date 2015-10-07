@@ -83,17 +83,8 @@ public class RestPerson
 
     }
 
-}
 
-/**
- * PUT method for updating or creating an instance of RestPerson
- *
- * @param content representation for the resource
- * @return an HTTP response with content of the updated or created resource.
- */
-@PUT
-        @Consumes("application/json")
-        public void putJson(String content)
-    {
-    }
+
+
+
 }
