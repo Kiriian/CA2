@@ -5,6 +5,7 @@
  */
 package test;
 
+import entity.Company;
 import entity.Hobby;
 import entity.Person;
 import facade.Facade;
@@ -22,17 +23,18 @@ public class Tester
 
     public static void main(String[] args)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
         Person p = Facade.getPersonByID(1);
-        List<Hobby> h = p.getHobbys();
-        for (Hobby h1 : h)
-        {
-            System.out.println("hobby: " + h1);
-        }
-        System.out.println("Person: " + p.getFirstName() + ", " + p.getLastName() + ", ");
-        long count = Facade.countPeopleWithHobby("programmering");
-        System.out.println("count = " + count);
-        Facade.getCompanyByPhone("28775863");
-
+        System.out.println("Person: " + p.getFirstName() + ", " + p.getLastName());
+        System.out.println("hobby: " + p.getHobbys());
+////        long count = Facade.countPeopleWithHobby("programmering");
+//        System.out.println("count = " + count);
+//        Facade.getCompanyByPhone("28775863");
+        Company c = Facade.getCompanyByCVR("11111111");
+        System.out.println("Company: " + c.getId());
+        Company cc = Facade.getCompanyByID(4);
+        System.out.println("company: " + cc.getId());
+        System.out.println("company: " + cc.getCvr());
+        System.out.println("Company: " + Facade.getCompanyByCVR(c.getCvr()));
     }
 }

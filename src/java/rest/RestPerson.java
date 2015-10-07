@@ -76,7 +76,7 @@ public class RestPerson
             }
             person.add("hobbies", hobbies);
         
-        return gson person;
+        return gson.fromJson(person, String.class);
 
         
         
@@ -90,9 +90,10 @@ public class RestPerson
      * @param content representation for the resource
      * @return an HTTP response with content of the updated or created resource.
      */
-    @PUT
-    @Consumes("application/json")
-    public void putJson(String content)
-    {
-    }
-}
+//    @PUT
+//    @Consumes("application/json")
+//    public void putJson(String content)
+//    {
+//    }
+//}
+

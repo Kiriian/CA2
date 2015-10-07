@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,6 +16,7 @@ import javax.persistence.Entity;
 @Entity
 public class Company extends InfoEntitys implements Serializable
 {
+    @Id
     private Integer id;
     private String companyName;
     private String description;
@@ -77,17 +79,6 @@ public class Company extends InfoEntitys implements Serializable
         this.marketValue = marketValue;
     }
 
-        @Override
-    public Integer getId()
-    {
-        return id;
-    }
-    
-        @Override
-    public void setId(Integer id)
-    {
-        this.id = id;
-    }
 }
 
 
