@@ -26,23 +26,20 @@ public class Tester
     {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA_2PU");
         EntityManager em = emf.createEntityManager();
-        PersistData.testData(em);
+//        PersistData.testData(em);
         Person p = Facade.getPersonByID(1);
         List<Hobby> h = p.getHobbys();
         for (Hobby h1 : h)
         {
-            System.out.println("Hobby: " + h1);
+            System.out.println("Hobby: " + h1.getHobbyName());
         }
         System.out.println("Person: " + p.getFirstName() + ", " + p.getLastName());
-        
-//////        long count = Facade.countPeopleWithHobby("programmering");
-////        System.out.println("count = " + count);
-////        Facade.getCompanyByPhone("28775863");
-//        Company c = Facade.getCompanyByCVR(11111111);
-//        System.out.println("Company: " + c.getId());
-//        Company cc = Facade.getCompanyByID(4);
-//        System.out.println("company: " + cc.getId());
-//        System.out.println("company: " + cc.getCvr());
-//        System.out.println("Company: " + Facade.getCompanyByCVR(c.getCvr()));
+        long count = Facade.countPeopleWithHobby("programmering");
+        System.out.println("count = " + count);
+        Company c = Facade.getCompanyByCVR(75897548);
+        System.out.println("Company: " + c.getId());
+        Company cc = Facade.getCompanyByID(7);
+        System.out.println("company: " + cc.getId());
+        System.out.println("company: " + cc.getCvr());
     }
 }
