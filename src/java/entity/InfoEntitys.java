@@ -37,6 +37,16 @@ public class InfoEntitys implements Serializable
     @ManyToOne
     private Address address;
 
+    public InfoEntitys()
+    {
+    }
+
+    public InfoEntitys(String email, Address address)
+    {
+        this.email = email;
+        this.address = address;
+    }    
+    
     public Integer getId()
     {
         return id;
@@ -77,5 +87,8 @@ public class InfoEntitys implements Serializable
         this.address = address;
     }
 
-    
+    public void addPhone(Phone phone)
+    {
+        phoneList.add(phone);
+    }  
 }

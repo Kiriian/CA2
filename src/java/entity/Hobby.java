@@ -29,7 +29,15 @@ public class Hobby implements Serializable
     @ManyToMany(mappedBy = "hobbys")
     List<Person> personList = new ArrayList();
 
-   
+    public Hobby()
+    {
+    }
+
+    public Hobby(String hobbyName, String description)
+    {
+        this.hobbyName = hobbyName;
+        this.description = description;
+    }    
 
     public String getHobbyName()
     {

@@ -28,10 +28,15 @@ public class Phone implements Serializable
     private String description;
     @ManyToOne
     private InfoEntitys infoEntity;
-    
 
     public Phone()
     {
+    }
+
+    public Phone(String PhoneNumber, String description)
+    {
+        this.PhoneNumber = PhoneNumber;
+        this.description = description;
     }
 
     public String getPhoneNumber()
