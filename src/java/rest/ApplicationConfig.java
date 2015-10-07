@@ -32,6 +32,8 @@ public class ApplicationConfig extends Application
      */
     private void addRestResourceClasses(Set<Class<?>> resources)
     {
+        resources.add(exceptions.GenericExceptionMapper.class);
+        resources.add(exceptions.PersonNotFoundExceptionMapper.class);
         resources.add(rest.RestPerson.class);
     }
     
