@@ -43,13 +43,7 @@ public class RestPerson
     public RestPerson()
     {
         gson = new GsonBuilder().setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create();
-    }
-
-    /**
-     * Retrieves representation of an instance of rest.RestPerson
-     *
-     * @return an instance of java.lang.String
-     */
+    } 
     @GET
     @Path("complete/{id}")
     @Produces("application/json")
@@ -78,7 +72,7 @@ public class RestPerson
             }
             person.add("hobbies", hobbies);
         
-        String s = new Gson().fromJson(person, String.class);
+        String s = gson.toJson(person);
         return s;
 
     }
