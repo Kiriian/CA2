@@ -69,6 +69,19 @@ public class Person extends InfoEntitys implements Serializable
     {
         return id;
     }
+     public void addHobby(Hobby hobby) 
+     {
+        hobbys.add(hobby);
+    }
+    
+    
+    public void removeHobby(Hobby hobby) 
+    {
+        if (hobbys.contains(hobby)) 
+        {
+            hobbys.remove(hobbys.indexOf(hobby));
+        }
+    }
 
     @Override
     public void setId(Integer id)
