@@ -6,6 +6,7 @@
 package entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Phone implements Serializable
     private long id;
     private String PhoneNumber;
     private String description;
-    @ManyToOne
+    @ManyToOne(cascade={CascadeType.ALL})
     private InfoEntitys infoEntity;
 
     public Phone()

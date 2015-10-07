@@ -5,11 +5,8 @@
  */
 package facade;
 
-import entity.CityInfo;
 import entity.Company;
-import entity.Hobby;
 import entity.Person;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

@@ -15,7 +15,6 @@
       <property name="javax.persistence.jdbc.user" value="ca2"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="ca2"/>
-      <property name="javax.persistence.sql-load-script-source" value="scripts/populateZip.sql"/>
     </properties>
   </persistence-unit>
 </persistence>
